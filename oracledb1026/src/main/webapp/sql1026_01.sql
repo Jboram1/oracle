@@ -1,4 +1,4 @@
---»ç¹øÀÌ È¦¼ö ÀÎ »ç¿øÀ» Ãâ·Â
+--ì‚¬ë²ˆì´ í™€ìˆ˜ ì¸ ì‚¬ì›ì„ ì¶œë ¥
 select employee_id from employees
 where mod(employee_id,2) = 1;
 
@@ -6,215 +6,215 @@ where mod(employee_id,2) = 1;
 select *from board;
 desc board;
 
---ÇöÀç³¯Â¥ Ãâ·Â
+--í˜„ì¬ë‚ ì§œ ì¶œë ¥
 select sysdate from dual;
 
 select *from board order by bno desc;
 
 insert into board values (
-board_seq.nextval,'ÀÌº¥Æ® ÁøÇà','³»¿ëÀÔ´Ï´Ù.',sysdate,'ccc',board_seq.currval,0,0,1,'');
+board_seq.nextval,'ì´ë²¤íŠ¸ ì§„í–‰','ë‚´ìš©ì…ë‹ˆë‹¤.',sysdate,'ccc',board_seq.currval,0,0,1,'');
 
 insert into board values (
-board_seq.nextval,'°Ô½Ã±ÛÀ» µî·ÏÇÕ´Ï´Ù.','°Ô½Ã±Û ³»¿ëÀÔ´Ï´Ù.',sysdate,'ccc',board_seq.currval,0,0,1,'2.jpg');
+board_seq.nextval,'ê²Œì‹œê¸€ì„ ë“±ë¡í•©ë‹ˆë‹¤.','ê²Œì‹œê¸€ ë‚´ìš©ì…ë‹ˆë‹¤.',sysdate,'ccc',board_seq.currval,0,0,1,'2.jpg');
 
 insert into board values(
-board_seq.nextval,'°Ô½Ã±ÛÀ» µî·ÏÇÕ´Ï´Ù.','°Ô½Ã±Û ³»¿ëÀÔ´Ï´Ù.2',sysdate,'ccc',board_seq.currval,0,0,1,'3.jpg');
+board_seq.nextval,'ê²Œì‹œê¸€ì„ ë“±ë¡í•©ë‹ˆë‹¤.','ê²Œì‹œê¸€ ë‚´ìš©ì…ë‹ˆë‹¤.2',sysdate,'ccc',board_seq.currval,0,0,1,'3.jpg');
 
 select *from board order by bno desc;
 
 commit;
 
---³¯Â¥ ¾Ë¾Æ³»±â
-select sysdate-1 ¾îÁ¦, sysdate ¿À´Ã, sysdate+1 ³»ÀÏ from dual;
+--ë‚ ì§œ ì•Œì•„ë‚´ê¸°
+select sysdate-1 ì–´ì œ, sysdate ì˜¤ëŠ˜, sysdate+1 ë‚´ì¼ from dual;
 
 select bdate from board
 order by bdate desc;
 
---ÇöÀç³¯Â¥ ±âÁØ 5ÀÏ ÀÌÀü¿¡ °Ô½Ã±Û Ãâ·Â
---¹øÈ£,Á¦¸ñ,ÀÛ¼ºÀÏ¸¸ Ãâ·Â
+--í˜„ì¬ë‚ ì§œ ê¸°ì¤€ 5ì¼ ì´ì „ì— ê²Œì‹œê¸€ ì¶œë ¥
+--ë²ˆí˜¸,ì œëª©,ì‘ì„±ì¼ë§Œ ì¶œë ¥
 select sysdate-5 from dual;
 
 select  bno, btitle, bdate from board
 where bdate > sysdate-5
 order by bdate desc;
 
---employees ÀÔ»çÀÏ¿¡¼­ ÇöÀç³¯Â¥±îÁö ±â°£À» Ãâ·Â
---¼Ò¼öÁ¡Àº Àı»ç
+--employees ì…ì‚¬ì¼ì—ì„œ í˜„ì¬ë‚ ì§œê¹Œì§€ ê¸°ê°„ì„ ì¶œë ¥
+--ì†Œìˆ˜ì ì€ ì ˆì‚¬
 select employee_id, emp_name, hire_date, department_id, trunc(sysdate - hire_date) from employees;
 
---´Ù°¡¿Ã ¿äÀÏÀ» Ãâ·Â
---½ÇÇàÇÏ¸é ±× ¿äÀÏÀÇ ³¯Â¥¸¦ ¾Ë·ÁÁÜ
-select next_day(sysdate,'¸ñ¿äÀÏ') from dual;
-select next_day(sysdate,'¸ñ')from dual;
+--ë‹¤ê°€ì˜¬ ìš”ì¼ì„ ì¶œë ¥
+--ì‹¤í–‰í•˜ë©´ ê·¸ ìš”ì¼ì˜ ë‚ ì§œë¥¼ ì•Œë ¤ì¤Œ
+select next_day(sysdate,'ëª©ìš”ì¼') from dual;
+select next_day(sysdate,'ëª©')from dual;
 select next_day(sysdate,7)from dual;
 
---ÀÔ·ÂÇÑ ³¯ÀÇ ¸¶Áö¸· ÀÏÀ» Ãâ·Â
+--ì…ë ¥í•œ ë‚ ì˜ ë§ˆì§€ë§‰ ì¼ì„ ì¶œë ¥
 select last_day(sysdate) from dual;
 select last_day('20231201')from dual;
 select last_day('20221101')from dual;
 select last_day('221101')from dual;
 
 --add, months
---´ŞÀ» ´õÇÏ°Å³ª »¬ ¼ö ÀÖ´Ù
+--ë‹¬ì„ ë”í•˜ê±°ë‚˜ ëº„ ìˆ˜ ìˆë‹¤
 select add_months(sysdate,-2) from dual;
 select add_months(sysdate,+12) from dual;
 select add_months('20220101',+6) from dual;
 
---ÇöÀç´Ş¿¡¼­ ÀÔ»çÇÑ ´Ş±îÁöÀÇ °³¿ù¼ö
---¹İ¿Ã¸²Àº round, ¹®ÀÚºÙÀÌ±â´Â ||' '
-select round(months_between(sysdate,hire_date))||'°³¿ù' from employees;
+--í˜„ì¬ë‹¬ì—ì„œ ì…ì‚¬í•œ ë‹¬ê¹Œì§€ì˜ ê°œì›”ìˆ˜
+--ë°˜ì˜¬ë¦¼ì€ round, ë¬¸ìë¶™ì´ê¸°ëŠ” ||' '
+select round(months_between(sysdate,hire_date))||'ê°œì›”' from employees;
 
---ÇöÀç±âÁØÀ¸·Î 6°³¿ùµ¿¾È °Ô½Ã±ÛÀÌ ÀÛ¼ºµÈ ±ÛÀ» Ãâ·Â. board»ç¿ë
+--í˜„ì¬ê¸°ì¤€ìœ¼ë¡œ 6ê°œì›”ë™ì•ˆ ê²Œì‹œê¸€ì´ ì‘ì„±ëœ ê¸€ì„ ì¶œë ¥. boardì‚¬ìš©
 select bno, btitle, bdate
 from board
 where bdate> add_months(sysdate,-6)
 order by bdate desc;
 
---³¯Â¥ Áß ³âµµ¸¸, ´Ş¸¸, ÀÏ¸¸ Ãâ·Â : extract
+--ë‚ ì§œ ì¤‘ ë…„ë„ë§Œ, ë‹¬ë§Œ, ì¼ë§Œ ì¶œë ¥ : extract
 select extract(year from bdate) from board;
 select extract(month from bdate) from board;
 select extract(day from bdate) from board;
 
---3¿ù 5¿ù 7¿ù¿¡ ÀÔ·ÂÇÑ °Ô½Ã±ÛÀ» Ãâ·ÂÇÏ½Ã¿À.
+--3ì›” 5ì›” 7ì›”ì— ì…ë ¥í•œ ê²Œì‹œê¸€ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 select bno, btitle, bdate from board
 where extract(month from bdate) in(3,5,7) order by bdate asc;
 
---³¯Â¥ round - 15ÀÏÀÌÇÏ´Â 1ÀÏ ¼¼ÆÃ, 16ÀÏºÎÅÍ´Â 1´Ş Ãß°¡, trunc 1ÀÏ ±âÁØÀ¸·Î º¯°æÇÔ
---round(bdate,'month') ÀÏÀÚ¿¡ 15ÀÏ ÀÌ»óÀÌ¸é 1°³¿ù ¿Ã¶ó°¨
---trunc(bdate,'month') ÀÏÀÚ Àı»ç
+--ë‚ ì§œ round - 15ì¼ì´í•˜ëŠ” 1ì¼ ì„¸íŒ…, 16ì¼ë¶€í„°ëŠ” 1ë‹¬ ì¶”ê°€, trunc 1ì¼ ê¸°ì¤€ìœ¼ë¡œ ë³€ê²½í•¨
+--round(bdate,'month') ì¼ìì— 15ì¼ ì´ìƒì´ë©´ 1ê°œì›” ì˜¬ë¼ê°
+--trunc(bdate,'month') ì¼ì ì ˆì‚¬
 select bno, btitle, bdate from board;
 select bdate,round(bdate,'month'),trunc(bdate,'month') from board;
---to_date´Â Çüº¯È¯ ÇÔ¼ö
---('2023-02-16')¹®ÀÚ ¾Õ¿¡ to_date¸¦ ³Ö¾î¼­ ¼ıÀÚ·Î º¯È¯
+--to_dateëŠ” í˜•ë³€í™˜ í•¨ìˆ˜
+--('2023-02-16')ë¬¸ì ì•ì— to_dateë¥¼ ë„£ì–´ì„œ ìˆ«ìë¡œ ë³€í™˜
 select round(to_date('2023-02-16'),'month') from dual;
 
---to_char ³¯Â¥->¹®ÀÚÇüº¯È¯
---DAY(¸ñ¿äÀÏ), DY(¸ñ)
+--to_char ë‚ ì§œ->ë¬¸ìí˜•ë³€í™˜
+--DAY(ëª©ìš”ì¼), DY(ëª©)
 select bdate from board;
 select to_char(bdate,'YYYY-MM-DD DAY HH:MI:SS')from board order by bdate desc;
 
-select bno, btitle,bcontent, to_char(bdate,'YYYY"³â"MM"¿ù"DD"ÀÏ') bdate, bgroup ,bstep, bindent, bhit,bfile from board;
+select bno, btitle,bcontent, to_char(bdate,'YYYY"ë…„"MM"ì›”"DD"ì¼') bdate, bgroup ,bstep, bindent, bhit,bfile from board;
 
--- employees ÀÔ»çÀÏ(2023-11-01È­¿äÀÏ
+-- employees ì…ì‚¬ì¼(2023-11-01í™”ìš”ì¼
 select emp_name, to_char(hire_date,'YYYY-MM-DD DAY')from employees;
 
 
---AM HH24:MI:SS (¿ÀÀü, ¿ÀÈÄ)
--- HH12:MI:SS (12½Ã±âÁØ, 24½Ã±âÁØ)
+--AM HH24:MI:SS (ì˜¤ì „, ì˜¤í›„)
+-- HH12:MI:SS (12ì‹œê¸°ì¤€, 24ì‹œê¸°ì¤€)
 select to_char(bdate,'YYYY-MM-DD AM HH24:MI:SS') from board
 order by bdate desc;
 
---[¹®ÀÚÇü º¯È¯ÇÔ¼ö]
---¼ıÀÚ¸¦ ¹®ÀÚ·Î
+--[ë¬¸ìí˜• ë³€í™˜í•¨ìˆ˜]
+--ìˆ«ìë¥¼ ë¬¸ìë¡œ
 select to_char(1234567890)from dual;
---´Ş·¯Ç¥½Ã, (,)½°Ç¥´Â Ãµ´ÜÀ§Ç¥½Ã, 0-ºóÀÚ¸®°¡ 0À¸·ÎÇ¥½ÃµÊ
+--ë‹¬ëŸ¬í‘œì‹œ, (,)ì‰¼í‘œëŠ” ì²œë‹¨ìœ„í‘œì‹œ, 0-ë¹ˆìë¦¬ê°€ 0ìœ¼ë¡œí‘œì‹œë¨
 select to_char(1234567890,'$9,999,999,999') from dual;
 select to_char(123,'0000000000') from dual;
-select to_char(123,'999,999') from dual;--123    µÚºóÀÚ¸®°¡ °ø¹éÀ¸·Î µÊ
---LÀº ³ª¶óº° È­Æó´ÜÀ§Ç¥½Ã
+select to_char(123,'999,999') from dual;--123    ë’¤ë¹ˆìë¦¬ê°€ ê³µë°±ìœ¼ë¡œ ë¨
+--Lì€ ë‚˜ë¼ë³„ í™”íë‹¨ìœ„í‘œì‹œ
 select to_char(1234567890,'L9,999,999,999') from dual;
---trim ¾ÕµÚ °ø¹éÁ¦°ÅÇÔ¼ö
+--trim ì•ë’¤ ê³µë°±ì œê±°í•¨ìˆ˜
 select trim(to_char(123456,'L9,999,999,999')) from dual; --\123,456
 
 
---ÄûÁî
---salary ´Ş·¯Ç¥½Ã¿Í Ãµ´ÜÀ§ Ç¥½Ã
---salary*1342 ¿øÈ­Ç¥½Ã¿Í Ãµ´ÜÀ§Ç¥½Ã, ¼Ò¼öÁ¡1ÀÚ¸®±îÁö ¹İ¿Ã¸²Ç¥½Ã
+--í€´ì¦ˆ
+--salary ë‹¬ëŸ¬í‘œì‹œì™€ ì²œë‹¨ìœ„ í‘œì‹œ
+--salary*1342 ì›í™”í‘œì‹œì™€ ì²œë‹¨ìœ„í‘œì‹œ, ì†Œìˆ˜ì 1ìë¦¬ê¹Œì§€ ë°˜ì˜¬ë¦¼í‘œì‹œ
 select salary , to_char(salary,'$999,9999'), salary*1342.42, to_char(round(salary*1342.42,1),'L999,999,999.9')
 from employees;
 
---ÄûÁö
--- 12345ÃÑ 9ÀÚ¸®±îÁö Ç¥½Ã ÇÏ´Âµ¥, ºó°ø¹éÀº 0À¸·Î Ã¤¿öÁÜ.
+--í€´ì§€
+-- 12345ì´ 9ìë¦¬ê¹Œì§€ í‘œì‹œ í•˜ëŠ”ë°, ë¹ˆê³µë°±ì€ 0ìœ¼ë¡œ ì±„ì›Œì¤Œ.
 select to_char(12345,'000000000') from dual;
---ÄûÁî2
---12,345ÃÑ 9ÀÚ¸®±îÁö Ç¥½Ã Ãµ´ÜÀ§Ç¥½ÃÇÏ°í ºó°ø¹éÀº Á¦°ÅÇØ¼­ Ãâ·Â
+--í€´ì¦ˆ2
+--12,345ì´ 9ìë¦¬ê¹Œì§€ í‘œì‹œ ì²œë‹¨ìœ„í‘œì‹œí•˜ê³  ë¹ˆê³µë°±ì€ ì œê±°í•´ì„œ ì¶œë ¥
 select trim(to_char(12345,'999,999,999')) from dual;
 
---ÄûÁî3
---board Å×ÀÌºí¿¡¼­ bdate ¿Í ºñ±³ÇØ¼­ 20231023¼ıÀÚ¿Í °°Àº ³¯ ÀÔ·ÂÇÑ °Ô½Ã±ÛÀ» Ãâ·Â
+--í€´ì¦ˆ3
+--board í…Œì´ë¸”ì—ì„œ bdate ì™€ ë¹„êµí•´ì„œ 20231023ìˆ«ìì™€ ê°™ì€ ë‚  ì…ë ¥í•œ ê²Œì‹œê¸€ì„ ì¶œë ¥
 select bno, btitle, bdate 
 from board
 where bdate= to_date('20231023','YYYYMMDD') order by bdate desc;
 
---ÄûÁî4
---¼ıÀÚ 20200101ºÎÅÍ ÇöÀç±îÁö ±â°£ÀÌ ¾ó¸¶³ª Áö³µ´ÂÁö Ãâ·Â
+--í€´ì¦ˆ4
+--ìˆ«ì 20200101ë¶€í„° í˜„ì¬ê¹Œì§€ ê¸°ê°„ì´ ì–¼ë§ˆë‚˜ ì§€ë‚¬ëŠ”ì§€ ì¶œë ¥
 select trunc(sysdate-to_date('20200101','YYYYMMDD')) from dual;
 
---ÄûÁî5
---ÀÚ±â°¡ ÅÂ¾î³­ ³¯À» ±âÁØÀ¸·Î ¾ó¸¶³ª Áö³µ´ÂÁö Ãâ·Â
---ÀÚ±â°¡ ÅÂ¾î³­ ³¯À» ±âÁØÀ¸·Î ¸î°³¿ùÀÌ Áö³µ´ÂÁö Ãâ·Â
+--í€´ì¦ˆ5
+--ìê¸°ê°€ íƒœì–´ë‚œ ë‚ ì„ ê¸°ì¤€ìœ¼ë¡œ ì–¼ë§ˆë‚˜ ì§€ë‚¬ëŠ”ì§€ ì¶œë ¥
+--ìê¸°ê°€ íƒœì–´ë‚œ ë‚ ì„ ê¸°ì¤€ìœ¼ë¡œ ëª‡ê°œì›”ì´ ì§€ë‚¬ëŠ”ì§€ ì¶œë ¥
 select trunc(sysdate-to_date('19901120','YYYYMMDD')) from dual;
 select trunc(months_between(sysdate,to_date('19901120','YYYYMMDD'))) from dual;
 
---[¹®ÀÚ¸¦ ¼ıÀÚ·Î Çüº¯È¯ÇÔ¼ö]
---¹®ÀÚ20,000  - ¹®ÀÚ10,000ÀÇ Â÷ÀÌ¸¦ Ãâ·ÂÇÏ½Ã¿À.
+--[ë¬¸ìë¥¼ ìˆ«ìë¡œ í˜•ë³€í™˜í•¨ìˆ˜]
+--ë¬¸ì20,000  - ë¬¸ì10,000ì˜ ì°¨ì´ë¥¼ ì¶œë ¥í•˜ì‹œì˜¤.
 select to_number('20,000','99,999')from dual;
 select to_number('10,000','99,999') from dual;
 select to_number('20,000','99,999')-to_number('10,000','99,999') from dual;
 
 select emp_name,  to_char(salary,'$999,999') from employees;
 
---ÄûÁî6
---³âºÀ+Ä¿¹Ì¼ÇÆ÷ÇÔ
---¿ù±Ş*12+(¿ù±Ş*12*Ä¿¹Ì¼Ç) ³âºÀÀ¸·ÎÇØ¼­ Ãâ·Â
---nvl-null°ªÀÎ ¾êµéÀº 0À¸·Î
-select employee_id, emp_name, salary, salary*12+((salary*12)*nvl(commission_pct,0)) "³âºÀ" from employees;
+--í€´ì¦ˆ6
+--ë…„ë´‰+ì»¤ë¯¸ì…˜í¬í•¨
+--ì›”ê¸‰*12+(ì›”ê¸‰*12*ì»¤ë¯¸ì…˜) ë…„ë´‰ìœ¼ë¡œí•´ì„œ ì¶œë ¥
+--nvl-nullê°’ì¸ ì–˜ë“¤ì€ 0ìœ¼ë¡œ
+select employee_id, emp_name, salary, salary*12+((salary*12)*nvl(commission_pct,0)) "ë…„ë´‰" from employees;
 
 select manager_id from employees
 where manager_id is null;
 
 select manager_id from employees;
 
---null 0À¸·Î Ç¥½Ã Ãâ·Â
+--null 0ìœ¼ë¡œ í‘œì‹œ ì¶œë ¥
 select nvl(manager_id,0) from employees;
 
---ceo¶ó´Â ±ÛÀÚ·Î Ç¥½ÃÇØ¼­ Ãâ·Â
---¼ıÀÚ¸¦ ¹®ÀÚ·Î Çüº¯È¯ÈÄ CEO±ÛÀÚ Ãâ·Â
+--ceoë¼ëŠ” ê¸€ìë¡œ í‘œì‹œí•´ì„œ ì¶œë ¥
+--ìˆ«ìë¥¼ ë¬¸ìë¡œ í˜•ë³€í™˜í›„ CEOê¸€ì ì¶œë ¥
 select nvl(to_char(manager_id),'CEO') from employees;
 
---±×·ìÇÔ¼ö--
---°Ô½Ã±Û Á¶È¸¼ö ÃÑÇÕÀ» Ãâ·Â
---Ãµ´ÜÀ§Ç¥½Ã, °ø¹éÁ¦°Å(trim)
+--ê·¸ë£¹í•¨ìˆ˜--
+--ê²Œì‹œê¸€ ì¡°íšŒìˆ˜ ì´í•©ì„ ì¶œë ¥
+--ì²œë‹¨ìœ„í‘œì‹œ, ê³µë°±ì œê±°(trim)
 select trim(to_char(sum(bhit), '999,999,999')) from board;
---Æò±ÕÇ¥½Ã
+--í‰ê· í‘œì‹œ
 select trim(to_char(avg(bhit), '999,999,999')) from board;
 
---¿ù±ŞÀÇ Æò±Õ Ãâ·Â, ¼Ò¼öÁ¡ 2ÀÚ¸®±îÁö ¹İ¿Ã¸²
+--ì›”ê¸‰ì˜ í‰ê·  ì¶œë ¥, ì†Œìˆ˜ì  2ìë¦¬ê¹Œì§€ ë°˜ì˜¬ë¦¼
 select round(avg(salary),2) from employees;
 
---emp_name ´ÜÀÏÇÔ¼ö¸¦ ±×·ìÇÔ¼ö¿Í ÇÔ²² Ãâ·ÂÀÌ ¾È µÊ.
+--emp_name ë‹¨ì¼í•¨ìˆ˜ë¥¼ ê·¸ë£¹í•¨ìˆ˜ì™€ í•¨ê»˜ ì¶œë ¥ì´ ì•ˆ ë¨.
 select emp_name, avg(salary) from employees;
 
---min ÃÖ¼Ò°ª, max ÃÖ´ë°ª, avgÆò±Õ, count°³¼ö, sumÇÕ°è
+--min ìµœì†Œê°’, max ìµœëŒ€ê°’, avgí‰ê· , countê°œìˆ˜, sumí•©ê³„
 select min(salary), max(salary), avg(salary), count(*) from employees;
 
---ºÎ¼­°¡ 50ÀÎ »ç¿øµéÀÇ salaryÇÕ°è Æò±ÕÀ» Ãâ·Â
+--ë¶€ì„œê°€ 50ì¸ ì‚¬ì›ë“¤ì˜ salaryí•©ê³„ í‰ê· ì„ ì¶œë ¥
 --department_id
 select sum(salary), avg(salary) from employees where department_id = 50;
 
---¸ğµç ºÎ¼­ÀÇ ÇÕ°è¿Í Æò±ÕÀ» º¼ ¼ö ÀÖÀ½
--- from employees µÚ¿¡ group by¸¦ ³Ö¾îÁØ´Ù
+--ëª¨ë“  ë¶€ì„œì˜ í•©ê³„ì™€ í‰ê· ì„ ë³¼ ìˆ˜ ìˆìŒ
+-- from employees ë’¤ì— group byë¥¼ ë„£ì–´ì¤€ë‹¤
 select department_id, sum(salary), avg(salary) from employees group by department_id order by department_id asc;
 
---ÄûÁî
---³¯Â¥ °Ô½Ã±Û °³¼ö¸¦ Ãâ·Â
+--í€´ì¦ˆ
+--ë‚ ì§œ ê²Œì‹œê¸€ ê°œìˆ˜ë¥¼ ì¶œë ¥
 select bdate, count(*) from board
 group by bdate order by bdate asc;
 
---³âµµÀÇ ¿ùº° °³¼ö¸¦ Ãâ·Â
+--ë…„ë„ì˜ ì›”ë³„ ê°œìˆ˜ë¥¼ ì¶œë ¥
 select to_char(bdate,'YYYYMM') from board;
-select to_char(bdate,'YYYYMM')³â¿ù, count(to_char(bdate,'YYYYMM'))³â¿ùº°°³¼ö
+select to_char(bdate,'YYYYMM')ë…„ì›”, count(to_char(bdate,'YYYYMM'))ë…„ì›”ë³„ê°œìˆ˜
 from board
 group by to_char(bdate,'YYYYMM')
 order by to_char(bdate,'YYYYMM');
 
 select add_months(bdate,1) from board;
 
---³âµµ¸¸ Ãâ·Â
+--ë…„ë„ë§Œ ì¶œë ¥
 select extract(year from bdate) from board;
---¿ù¸¸ Ãâ·Â
+--ì›”ë§Œ ì¶œë ¥
 select extract(month from bdate) from board;
---ÀÏ¸¸Ãâ·Â
+--ì¼ë§Œì¶œë ¥
 select extract(day from bdate) from board;
 
 select extract(month from bdate), count(extract(month from bdate)) from board

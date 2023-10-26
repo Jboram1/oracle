@@ -3,19 +3,19 @@ select count (*) from board;
 
 --drop table board;
 
---bcontent ÄÃ·³¿¡ 'faucibus' ´Ü¾î°¡ µé¾î°¡ ÀÖ´Â °Ô½Ã±ÛÀ» Ãâ·ÂÇÏ½Ã¿À.
+--bcontent ì»¬ëŸ¼ì— 'faucibus' ë‹¨ì–´ê°€ ë“¤ì–´ê°€ ìˆëŠ” ê²Œì‹œê¸€ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 select *from board where bcontent like '%faucibus%';
 
---bcontent ÄÃ·³¿¡ 'ven' °³¼ö
---btitle 'ven' °³¼ö
+--bcontent ì»¬ëŸ¼ì— 'ven' ê°œìˆ˜
+--btitle 'ven' ê°œìˆ˜
 select *from board where bcontent like '%ven%';--233
 select *from board where btitle like '%ven%';--13
 
---btitle, bcontent ÄÃ·³¿¡ ven µé¾î°£ °Ô½Ã±Û Ãâ·Â
---2°¡Áö ÀÌ»óÀÏ¶© or»ç¿ëÇÏ±â
+--btitle, bcontent ì»¬ëŸ¼ì— ven ë“¤ì–´ê°„ ê²Œì‹œê¸€ ì¶œë ¥
+--2ê°€ì§€ ì´ìƒì¼ë• orì‚¬ìš©í•˜ê¸°
 select *from board where bcontent like '%ven%' or btitle like '%ven%';--245
 
---bcontent nÀ¸·Î ½ÃÀÛÇÏ¸é¼­ 4°³ÀÇ ¹®ÀÚ´Ü¾î°¡ ÀÖ´Â °Ô½Ã±ÛÀ» Ãâ·ÂÇÏ½Ã¿À.
+--bcontent nìœ¼ë¡œ ì‹œì‘í•˜ë©´ì„œ 4ê°œì˜ ë¬¸ìë‹¨ì–´ê°€ ìˆëŠ” ê²Œì‹œê¸€ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 --nibh, naabb, uisque
 --%n___%, %
 select bcontent from board
@@ -24,61 +24,61 @@ where bcontent like '% n___';
 select *from employees;
 
 select emp_name from employees
-where emp_name like 'D_____ %'; -- '__'ÇÏ³ªÀÇ ´Ü¾î¸¦ ÀÇ¹Ì, _¿Í % »çÀÌ¿¡´Â ¶ç¾î¾²±â.
+where emp_name like 'D_____ %'; -- '__'í•˜ë‚˜ì˜ ë‹¨ì–´ë¥¼ ì˜ë¯¸, _ì™€ % ì‚¬ì´ì—ëŠ” ë„ì–´ì“°ê¸°.
 
 select * from employees where emp_name like 'D%';--9
 select * from employees where emp_name like '%a%';--83
 
---µÎ¹øÂ° ±ÛÀÚ°¡ a ÀÎ »ç¿øÀÌ¸§À» Ãâ·Â
---notÀº Æ÷ÇÔÀÌ ¾È µÈ »ç¶÷
+--ë‘ë²ˆì§¸ ê¸€ìê°€ a ì¸ ì‚¬ì›ì´ë¦„ì„ ì¶œë ¥
+--notì€ í¬í•¨ì´ ì•ˆ ëœ ì‚¬ëŒ
 select *from employees where emp_name like '_a%';--32
 select *from employees where emp_name not like '_a%';--75
 
 
---¿ù±ŞÀ» ³·Àº ¼øºÎÅÍ Ãâ·ÂÇÏ½Ã¿À.
+--ì›”ê¸‰ì„ ë‚®ì€ ìˆœë¶€í„° ì¶œë ¥í•˜ì‹œì˜¤.
 select emp_name, salary from employees
-order by salary asc; --desc(³ôÀº¼ø, ¿À¸§Â÷¼ø, ¿ª¼ø)
+order by salary asc; --desc(ë†’ì€ìˆœ, ì˜¤ë¦„ì°¨ìˆœ, ì—­ìˆœ)
 
 select employee_id,emp_name,job_id, hire_date from employees
 order by emp_name desc;
 
---ºÎ¼­¹øÈ£´Â ¼øÂ÷Á¤·Ä, ÀÌ¸§Àº ¿ª¼øÁ¤·Ä
+--ë¶€ì„œë²ˆí˜¸ëŠ” ìˆœì°¨ì •ë ¬, ì´ë¦„ì€ ì—­ìˆœì •ë ¬
 select employee_id, emp_name, department_id, job_id, hire_date from employees
 order by department_id asc, emp_name desc;
 
---¿ù±ŞÀ¸·Î ¼øÂ÷Á¤·Ä, ÀÔ»çÀÏ ¿ª¼øÁ¤·Ä
+--ì›”ê¸‰ìœ¼ë¡œ ìˆœì°¨ì •ë ¬, ì…ì‚¬ì¼ ì—­ìˆœì •ë ¬
 select employee_id, emp_name, department_id, job_id, hire_date,salary from employees
 order by salary asc, hire_date desc;
 
---abs:Àı´ë°ª
-select -10, abs(-10) "Àı´ë°ª" from dual;--¿À·ù°¡ ¾ø±âÀ§ÇÑ dual°¡Â¥Å×ÀÌºí
+--abs:ì ˆëŒ€ê°’
+select -10, abs(-10) "ì ˆëŒ€ê°’" from dual;--ì˜¤ë¥˜ê°€ ì—†ê¸°ìœ„í•œ dualê°€ì§œí…Œì´ë¸”
 
---floor:¹ö¸²
+--floor:ë²„ë¦¼
 select 10.54578, floor(10.54578) from dual;
 
---trunc(°ª, ¹ö¸²À§Ä¡) :Æ¯Á¤ÀÚ¸® ¹ö¸²
+--trunc(ê°’, ë²„ë¦¼ìœ„ì¹˜) :íŠ¹ì •ìë¦¬ ë²„ë¦¼
 select 10.54578, trunc(10.5478,2), floor(10.54578)from dual;
 
---round(°ª, ¹İ¿Ã¸²À§Ä¡):Æ¯Á¤ÀÚ¸® ¹İ¿Ã¸²
---round¿¡ ÀÚ¸®ÁöÁ¤ ¾È ÇÏ¸é Ã¹Â°ÀÚ¸®¿¡¼­ ¹İ¿Ã¸²
+--round(ê°’, ë°˜ì˜¬ë¦¼ìœ„ì¹˜):íŠ¹ì •ìë¦¬ ë°˜ì˜¬ë¦¼
+--roundì— ìë¦¬ì§€ì • ì•ˆ í•˜ë©´ ì²«ì§¸ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼
 select 10.54578, round(10.54578), round(10.54578,3) from dual;
 
 select *from stuscore;
---floor´Â ¹ö¸², round´Â ¹İ¿Ã¸²
+--floorëŠ” ë²„ë¦¼, roundëŠ” ë°˜ì˜¬ë¦¼
 select stunum,name,math, kor, eng,kor+eng,floor((kor+math)/2) from stuscore;
 
---¿ù±ŞÀ» ¿øÈ­·Î È¯»ê, 1342 ¼Ò¼öÁ¡2ÀÚ¸® ¹İ¿Ã¸²ÇØ¼­ Ãâ·ÂÇÏ½Ã¿À.
---»ç¹ø, »ç¿ø¸í, ¿ù±Ş, ¿ù±ŞÈ¯»ó, ¿ù±ŞÈ¯»ê3ÀÚ¸® ¹İ¿Ã¸²
+--ì›”ê¸‰ì„ ì›í™”ë¡œ í™˜ì‚°, 1342 ì†Œìˆ˜ì 2ìë¦¬ ë°˜ì˜¬ë¦¼í•´ì„œ ì¶œë ¥í•˜ì‹œì˜¤.
+--ì‚¬ë²ˆ, ì‚¬ì›ëª…, ì›”ê¸‰, ì›”ê¸‰í™˜ìƒ, ì›”ê¸‰í™˜ì‚°3ìë¦¬ ë°˜ì˜¬ë¦¼
 select employee_id, emp_name, salary, salary*1342.32, round(salary*1342.32,2) from employees;
 
---ÀÔ»çÀÏÀÌ ÇöÀç³¯Â¥±îÁö °É¸° ÀÏÀÚ¸¦ Ãâ·Â
---¼Ò¼öÁ¡ 3ÀÚ¸®¿¡¼­ ¹İ¿Ã¸² (3ÀÚ¸®¿¡¼­ ¹İ¿Ã¸²ÇÏ´Ï 2ÀÚ¸®±îÁö¸¸ ³ª¿À¸é µÊ)
--- -1Àº ¼Ò¼öÁ¡ ¹Ù·Î ¾Õ
+--ì…ì‚¬ì¼ì´ í˜„ì¬ë‚ ì§œê¹Œì§€ ê±¸ë¦° ì¼ìë¥¼ ì¶œë ¥
+--ì†Œìˆ˜ì  3ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼ (3ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼í•˜ë‹ˆ 2ìë¦¬ê¹Œì§€ë§Œ ë‚˜ì˜¤ë©´ ë¨)
+-- -1ì€ ì†Œìˆ˜ì  ë°”ë¡œ ì•
 select round(sysdate - hire_date,2) from employees;
 
--- ÀÔ»çÀÏ¿¡¼­ ÇöÀç³¯Â¥±îÁö °É¸° ÀÏÀÚ¸¦ Ãâ·Â
--- ¼Ò¼öÁ¡ ÀÚ¸®´Â ¹İ¿Ã¸²ÇÏ°í, ÀÏÀ» ³âÀ¸·Î È¯»êÇÏ½Ã¿À
---sdate¶ó´Â º¯¼ö¸íÀ» ÁÖ°í, Á¤·ÄÇÔ
+-- ì…ì‚¬ì¼ì—ì„œ í˜„ì¬ë‚ ì§œê¹Œì§€ ê±¸ë¦° ì¼ìë¥¼ ì¶œë ¥
+-- ì†Œìˆ˜ì  ìë¦¬ëŠ” ë°˜ì˜¬ë¦¼í•˜ê³ , ì¼ì„ ë…„ìœ¼ë¡œ í™˜ì‚°í•˜ì‹œì˜¤
+--sdateë¼ëŠ” ë³€ìˆ˜ëª…ì„ ì£¼ê³ , ì •ë ¬í•¨
 select emp_name, floor(round(sysdate - hire_date)/365) sdate from employees
 order by sdate asc;
 
@@ -86,32 +86,32 @@ select * from member;
 
 select * from employees;
 
---³ª¸ÓÁö ÇÔ¼ö
+--ë‚˜ë¨¸ì§€ í•¨ìˆ˜
 select mod(27,2), mod(27,5), mod(27,7) from dual;
 
---employees »ç¹øÀÌ È¦¼öÀÎ »ç¿øÀ» Ãâ·ÂÇÏ½Ã¿À.
+--employees ì‚¬ë²ˆì´ í™€ìˆ˜ì¸ ì‚¬ì›ì„ ì¶œë ¥í•˜ì‹œì˜¤.
 select * from employees where mod(employee_id,2)=1 order by employee_id asc;
 
---ºÎ¼­¹øÈ£°¡ Â¦¼öÀÎ »ç¿øÀ» Ãâ·ÂÇÏ½Ã¿À. »ç¹ø, »ç¿ø¸í, ÀÔ»çÀÏ, ¿ù±Ş, °ü¸®ÀÚ¹øÈ£, ºÎ¼­¹øÈ£ Ãâ·Â
+--ë¶€ì„œë²ˆí˜¸ê°€ ì§ìˆ˜ì¸ ì‚¬ì›ì„ ì¶œë ¥í•˜ì‹œì˜¤. ì‚¬ë²ˆ, ì‚¬ì›ëª…, ì…ì‚¬ì¼, ì›”ê¸‰, ê´€ë¦¬ìë²ˆí˜¸, ë¶€ì„œë²ˆí˜¸ ì¶œë ¥
 select employee_id,emp_name,hire_date, salary, manager_id, department_id  from employees where mod(manager_id,2)=1 order by manager_id asc;
 
 select * from board;
 
 select bhit from board;
---Á¶È¸¼ö Æò±Õ
+--ì¡°íšŒìˆ˜ í‰ê· 
 select avg(bhit) from board;
---2ÀÚ¸®¿¡¼­ ¹İ¿Ã¸²
+--2ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼
 select round(avg(bhit),1) from board;
---¼Ò¼öÁ¡ ¹ö¸²
+--ì†Œìˆ˜ì  ë²„ë¦¼
 select floor(avg(bhit)) from board;
 select trunc(avg(bhit)) from board;
---Æò±Õ¹Ş¾Æ ³ôÀº Á¶È¸¼ö¸¦ °¡Áø °Ô½Ã±Û Ãâ·Â
+--í‰ê· ë°›ì•„ ë†’ì€ ì¡°íšŒìˆ˜ë¥¼ ê°€ì§„ ê²Œì‹œê¸€ ì¶œë ¥
 select * from board where bhit >= (select avg(bhit) from board) order by bhit asc;
 
---Çüº¯È¯( , )
+--í˜•ë³€í™˜( , )
 select to_char(salary,'999,999'),to_char(round(salary*1342.32),'999,999,999') from employees;
 
---½ÃÄö½º
+--ì‹œí€€ìŠ¤
 create sequence member_seq
 start with 1
 increment by 1
@@ -130,15 +130,15 @@ nocache;
 
 select * from board order by bno desc;
 
-select board_seq.currval from dual;--ÇöÀç¹øÈ£
-select board_seq.nextval from dual;--nextvalÀº ¹«Á¶°Ç +1¾¿ Áõ°¡
+select board_seq.currval from dual;--í˜„ì¬ë²ˆí˜¸
+select board_seq.nextval from dual;--nextvalì€ ë¬´ì¡°ê±´ +1ì”© ì¦ê°€
 
 select member_seq.nextval from dual;
 
-insert into board values(  --currval ÇöÀç¹øÈ£ ÀĞ¾î¿À´Â°Å
-board_seq.nextval,'Á¦¸ñÀÔ´Ï´Ù.','³»¿ëÀÔ´Ï´Ù.',sysdate,'aaa',board_seq.currval,0,0,1,'1.jpg');
+insert into board values(  --currval í˜„ì¬ë²ˆí˜¸ ì½ì–´ì˜¤ëŠ”ê±°
+board_seq.nextval,'ì œëª©ì…ë‹ˆë‹¤.','ë‚´ìš©ì…ë‹ˆë‹¤.',sysdate,'aaa',board_seq.currval,0,0,1,'1.jpg');
 
---dept_seq2 ½ÃÀÛ10, ÁõºĞ 10
+--dept_seq2 ì‹œì‘10, ì¦ë¶„ 10
 select dept_seq.nextval from dual;
 
 desc stuscore;
@@ -153,14 +153,14 @@ order by total desc;
 select stunum,  rank() over (order by total desc) m_rank
 from stuscore ;
 
---totalÀ» ±âÁØÀ¸·Î ¿ª¼øÁ¤·Ä ÈÄ µî¼ö¸¦ Ãâ·Â
+--totalì„ ê¸°ì¤€ìœ¼ë¡œ ì—­ìˆœì •ë ¬ í›„ ë“±ìˆ˜ë¥¼ ì¶œë ¥
 select stunum,rank() over (order by total desc) 
 from stuscore;
 
 update stuscore set rank=1
 where stunum=1;
 
-select *from stuscore a, member b; --a,b ´Â º°Äª
+select *from stuscore a, member b; --a,b ëŠ” ë³„ì¹­
 
 select employee_id, emp_name,  employees.department_id , department_name, parent_id 
 from employees a,departments b
@@ -193,18 +193,18 @@ update emp2 set manager_id='';
 commit;
 select *from emp2;
 
---1. emp2ÀÇ »ç¿ø¹øÈ£¿Í employees »ç¿ø¹øÈ£ ¶È°°ÀÌ ÀÏÄ¡.
---2. emp2ÀÇ °ü¸®ÀÚ¹øÈ£¿Í employees °ü¸®ÀÚ¹øÈ£¸¦ °Ë»öÇÔ.
---3. employees°ü¸®ÀÚ¹øÈ£¸¦ emp2ÀÇ °ü¸®ÀÚ¹øÈ£¿¡ ÀÔ·Â½ÃÅ´
---Áß¿äÇÏ´Ï ÀÌÇØÇØº¸·Á°í ³ë·ÂÇØº¸¼¼¿ä.
+--1. emp2ì˜ ì‚¬ì›ë²ˆí˜¸ì™€ employees ì‚¬ì›ë²ˆí˜¸ ë˜‘ê°™ì´ ì¼ì¹˜.
+--2. emp2ì˜ ê´€ë¦¬ìë²ˆí˜¸ì™€ employees ê´€ë¦¬ìë²ˆí˜¸ë¥¼ ê²€ìƒ‰í•¨.
+--3. employeesê´€ë¦¬ìë²ˆí˜¸ë¥¼ emp2ì˜ ê´€ë¦¬ìë²ˆí˜¸ì— ì…ë ¥ì‹œí‚´
+--ì¤‘ìš”í•˜ë‹ˆ ì´í•´í•´ë³´ë ¤ê³  ë…¸ë ¥í•´ë³´ì„¸ìš”.
 update (select a.manager_id a_m, b.manager_id b_m from emp2 a, employees b where a.employee_id = b.employee_id) 
 set a_m=b_m;
---()¾È¿¡ µé¾î°£°Ô ÀÌ°Å
+--()ì•ˆì— ë“¤ì–´ê°„ê²Œ ì´ê±°
 select a.manager_id a_m, b.manager_id b_m
 from emp2 a, employees b
 where a.employee_id = b.employee_id;
 
---ÀÌ°Íµµ Áß¿ä
+--ì´ê²ƒë„ ì¤‘ìš”
 update stuscore a
 set rank = ( -- select stunum,rank from stuscore
 select b_rank from
@@ -213,7 +213,7 @@ where a.stunum = b.b_num);
 
 
 
---emp_seq, ½ÃÀÛ 1, ÁõºĞ1, ÃÖ¼Ò1, ÃÖ´ë100000
+--emp_seq, ì‹œì‘ 1, ì¦ë¶„1, ìµœì†Œ1, ìµœëŒ€100000
 create sequence emp_seq
 start with 1
 increment by 1
@@ -228,19 +228,19 @@ ename varchar(10),
 hiredate date);
 
 insert into emp01
-values(emp_seq.nextval, 'È«±æµ¿', sysdate);
+values(emp_seq.nextval, 'í™ê¸¸ë™', sysdate);
 
 insert into emp01
-values(emp_seq.nextval,'À¯°ü¼ø',sysdate);
+values(emp_seq.nextval,'ìœ ê´€ìˆœ',sysdate);
 
 insert into emp01
-values(emp_seq.nextval,'ÀÌ¼ø½Å',sysdate);
+values(emp_seq.nextval,'ì´ìˆœì‹ ',sysdate);
 
 insert into emp01
-values(emp_seq.nextval,'È«±æÀÚ',sysdate);
+values(emp_seq.nextval,'í™ê¸¸ì',sysdate);
 
 insert into emp01
-values(emp_seq.nextval,'È«±æ¼ø',sysdate);
+values(emp_seq.nextval,'í™ê¸¸ìˆœ',sysdate);
 
 select *from emp01;
 
